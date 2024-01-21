@@ -1,5 +1,5 @@
 import React from "react";
-import memesData from "../memesData";
+// import memesData from "../memesData";
 
 export default function Meme() {
     const [meme, setMeme] = React.useState({
@@ -19,12 +19,10 @@ export default function Meme() {
         getMemes()
     }, [])
 
-    console.log(allMemes)
-
     function getMemeImage() {
-        const memesArray = memesData.data.memes;
-        const randomNumber = Math.floor(Math.random() * memesArray.length);
-        const url = memesArray[randomNumber].url;
+        // const memesArray = allMemes.data.memes //memesData.data.memes;
+        const randomNumber = Math.floor(Math.random() * allMemes.length);
+        const url = allMemes[randomNumber].url;
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url
@@ -52,7 +50,7 @@ export default function Meme() {
                 />
                 <input 
                     type="text"
-                    placeholder="Buttom Text"
+                    placeholder="Bottom Text"
                     className="form-input"
                     name="bottomText"
                     value={meme.bottomText}
